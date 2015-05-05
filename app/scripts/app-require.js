@@ -4,6 +4,7 @@ require.config({
         'ngAmd': '/bower_components/angularAMD/angularAMD',
         'ngAria': '/bower_components/angular-aria/angular-aria',
         'ngRoute': '/bower_components/angular-route/angular-route',
+        'ngMessages': '/bower_components/angular-messages/angular-messages',
         'ngAnimate': '/bower_components/angular-animate/angular-animate',
         'ngMaterial': '/bower_components/angular-material/angular-material'
     },
@@ -17,6 +18,10 @@ require.config({
             exports: 'angular'
         },
         ngAnimate: {
+            deps: ['angular'],
+            exports: 'angular'
+        },
+        ngMessages: {
             deps: ['angular'],
             exports: 'angular'
         },

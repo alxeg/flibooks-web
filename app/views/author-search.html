@@ -1,3 +1,10 @@
-author-search.html
-<p/>
-<a href="#/author/books">Author's books</a>
+<form name="searchForm">
+    <md-input-container>
+        <label>Author</label>
+        <input minlength="3" required name="author" ng-model="search.author">
+        <div ng-messages="searchForm.author.$error">
+            <div ng-message="required">Enter author's name.</div>
+            <div ng-message="minlength">Enter at least 3 letters of author's name.</div>
+        </div>
+    </md-input-container>
+</form>

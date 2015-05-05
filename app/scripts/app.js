@@ -1,10 +1,11 @@
-define(['ngAmd', 'ngRoute', 'ngMaterial', 'ngAnimate', 'ngAria',
+define(['ngAmd', 'ngRoute', 'ngMaterial', 'ngAnimate', 'ngAria', 'ngMessages',
         'controllers/navigation'
     ],
     function(ngAmd) {
         var app = angular.module('fliApp', [
             'ngRoute',
-            'ngMaterial'
+            'ngMaterial',
+            'ngMessages'
         ]);
 
         app.config(['$routeProvider', function($routeProvider) {
@@ -17,7 +18,7 @@ define(['ngAmd', 'ngRoute', 'ngMaterial', 'ngAnimate', 'ngAria',
                     templateUrl: 'views/author-search.html',
                     controllerUrl: 'controllers/author-search'
                 }))
-                .when("/author/books", ngAmd.route({
+                .when("/author/:id/books", ngAmd.route({
                     templateUrl: 'views/author-books.html',
                     controllerUrl: 'controllers/author-books'
                 }))
