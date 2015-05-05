@@ -28,7 +28,7 @@
                     <md-item-content>
                         <md-button ng-click="openPage(item)" ng-class="{'selected' : isSelected(item)}">
                             <md-icon md-svg-src="assets/icons/{{item.icon}}" class="navigation-icon" alt=""></md-icon>
-                            {{item.title}}
+                            <span ng-bind="item.title"></span>
                         </md-button>
                     </md-item-content>
                 </md-item>
