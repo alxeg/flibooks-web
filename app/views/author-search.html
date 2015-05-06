@@ -1,10 +1,21 @@
 <form name="searchForm">
     <md-input-container>
         <label>Author</label>
-        <input minlength="3" required name="author" ng-model="search.author">
+        <input minlength="1" required name="author" ng-model="search.author">
         <div ng-messages="searchForm.author.$error">
             <div ng-message="required">Enter author's name.</div>
             <div ng-message="minlength">Enter at least 3 letters of author's name.</div>
         </div>
     </md-input-container>
 </form>
+<md-content>
+    <md-list class="authors-list">
+        <md-list-item ng-repeat="author in authors" ng-click="listBooks(author.ID, $event)" md-default-theme>
+            <md-item-content>
+                <md-button>
+                    {{ author.name }}
+                </md-button>
+            </md-item-content>
+        </md-list-item>
+    </md-list>
+</md-content>
