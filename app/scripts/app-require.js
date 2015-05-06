@@ -1,12 +1,12 @@
 require.config({
     paths: {
-        'angular': '/bower_components/angular/angular',
-        'ngAmd': '/bower_components/angularAMD/angularAMD',
-        'ngAria': '/bower_components/angular-aria/angular-aria',
-        'ngRoute': '/bower_components/angular-route/angular-route',
-        'ngMessages': '/bower_components/angular-messages/angular-messages',
-        'ngAnimate': '/bower_components/angular-animate/angular-animate',
-        'ngMaterial': '/bower_components/angular-material/angular-material'
+        'angular': '../bower_components/angular/angular',
+        'ngAmd': '../bower_components/angularAMD/angularAMD',
+        'ngAria': '../bower_components/angular-aria/angular-aria',
+        'ngRoute': '../bower_components/angular-route/angular-route',
+        'ngMessages': '../bower_components/angular-messages/angular-messages',
+        'ngAnimate': '../bower_components/angular-animate/angular-animate',
+        'ngMaterial': '../bower_components/angular-material/angular-material'
     },
     shim: {
         ngRoute: {
@@ -37,7 +37,7 @@ require.config({
             exports: 'angular'
         }
     },
-    baseUrl: '/scripts/',
+    baseUrl: 'scripts/',
     deps: ['app']
 });
 

@@ -15,9 +15,18 @@ gulp.task('lint', function() {
 
 gulp.task('serve', function () {
   connect.server({
-    root: 'app/',
-    port: 8800
-  });
+        root: 'app/',
+        port: 8800,
+        middleware: function(connect, o) {
+            return [ (function() {
+                var url = require('url');
+                var proxy = require('proxy-middleware');
+                var options = url.parse('http://localhost:8000');
+                options.route = '/api';
+                return proxy(options);
+            })()];
+        }
+    });
 });
 
 // default task
