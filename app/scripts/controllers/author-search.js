@@ -4,7 +4,8 @@ define(['app'], function(app) {
         $scope.authors = [];
 
         $scope.search = {
-            author: ""
+            author: "",
+            limit: 10
         };
 
         $scope.listBooks = function (id, event) {
@@ -15,9 +16,7 @@ define(['app'], function(app) {
             $timeout.cancel($scope.timeout);
             $scope.timeout = $timeout(function() {
                 if ($scope.search.author) {
-                    $http.post('/api/author/search', {
-                            "author": $scope.search.author
-                        })
+                    $http.post('/api/author/search',  $scope.search)
                         .success(function(data, status) {
                             $scope.status = status;
                             $scope.authors = data;
