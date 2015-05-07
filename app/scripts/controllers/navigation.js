@@ -1,19 +1,21 @@
 define(['ngAmd'], function(ngAmd) {
     var navMenu = [{
-            "title": "authors",
-            "url": "/author/search",
-            "icon": "author.svg",
-            "selectionPath": "/author/"
-        }, {
-            "title": "books",
-            "url": "/book/search",
-            "icon": "books.svg",
-            "selectionPath": "/book/"
-        }
-    ];
+        "title": "authors",
+        "url": "/author/search",
+        "icon": "author.svg",
+        "selectionPath": "/author/"
+    }, {
+        "title": "books",
+        "url": "/book/search",
+        "icon": "books.svg",
+        "selectionPath": "/book/"
+    }];
 
-    ngAmd.controller('navigation-controller', ['$scope', '$mdSidenav', '$location',
+    ngAmd.controller('navigation-controller', [
+        '$scope', '$mdSidenav', '$location', 
+
         function($scope, $mdSidenav, $location) {
+
             $scope.toggleNavigation = function() {
                 $mdSidenav('left').toggle();
             };
@@ -23,7 +25,7 @@ define(['ngAmd'], function(ngAmd) {
             };
 
             $scope.isSelected = function(menuItem) {
-                return $location.url().indexOf(menuItem.selectionPath)===0;
+                return $location.url().indexOf(menuItem.selectionPath) === 0;
             };
 
             $scope.menu = navMenu;

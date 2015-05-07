@@ -21,7 +21,6 @@
             <h1 class="md-toolbar-tools" layout-align-gt-sm="center">Flibooks App</h1>
         </div>
     </md-toolbar>
-     <!-- <md-progress-linear md-mode="indeterminate"></md-progress-linear> -->
     <div layout="row" flex class="content-wrapper">
         <md-sidenav layout="column" class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')">
             <md-list class="navigation-list">
@@ -35,7 +34,7 @@
                 </md-item>
             </md-list>
         </md-sidenav>
-        <div layout="column" flex class="content-wrapper" id="primary-col" layout-padding>
+        <div layout="column" flex class="content-wrapper" id="primary-col" layout-padding layout-fill>
             <ng-view />
         </div>
 </body>
