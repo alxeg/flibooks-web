@@ -12,8 +12,7 @@
     <md-list class="authors-list">
         <md-list-item ng-repeat="author in authors" ng-click="listBooks(author.ID, $event)" md-default-theme>
             <md-item-content>
-                <md-button>
-                    {{ author.name }}
+                <md-button ng-bind-html="author.name | highlight:search">
                 </md-button>
             </md-item-content>
         </md-list-item>

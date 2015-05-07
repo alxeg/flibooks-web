@@ -17,6 +17,10 @@
   height: 50px;
 }
 
+.highlighted {
+  background-color: lightgray;
+}
+
 .navigation-list .selected {
   color: #03a9f4;
 }
