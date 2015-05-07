@@ -1,7 +1,7 @@
 <form name="searchForm">
     <md-input-container>
         <label>Author</label>
-        <input minlength="1" required name="author" ng-model="search.author">
+        <input minlength="1" required name="author" ng-model="search">
         <div ng-messages="searchForm.author.$error">
             <div ng-message="required">Enter author's name.</div>
             <div ng-message="minlength">Enter at least 3 letters of author's name.</div>

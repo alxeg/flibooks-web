@@ -1,27 +1,24 @@
-define(['app'], function(app) {
+define(['app', 'services/data'], function(app) {
 
-    return ['$scope', '$timeout', '$http', function($scope, $timeout, $http) {
-        $scope.authors = [];
+    return ['$scope', '$timeout', '$http', 'dataService', function($scope, $timeout, $http, dataService) {
+        $scope.authors = dataService.authorsRes;
 
-        $scope.search = {
-            author: "",
-            limit: 10
-        };
+        $scope.search = dataService.search.author;
 
         $scope.listBooks = function (id, event) {
             console.log("Go to books of author id " + id);
         };
 
-        $scope.$watch('search.author', function() {
+        $scope.$watch('search', function() {
             $timeout.cancel($scope.timeout);
             $scope.timeout = $timeout(function() {
-                if ($scope.search.author) {
-                    $http.post('/api/author/search',  $scope.search)
-                        .success(function(data, status) {
+                if ($scope.search) {
+                    dataService.searchAuthors($scope.search)
+                        .then(function(data, status) {
                             $scope.status = status;
                             $scope.authors = data;
-                        })
-                        .error(function(data, status) {
+                        },
+                        function(data, status) {
                             $scope.authors = [];
                         });
                 }
