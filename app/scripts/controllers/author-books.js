@@ -4,6 +4,11 @@ define(['app', 'angular', 'services/data'], function(app, angular) {
         $scope.books = [];
         $scope.author = '';
 
+
+        $scope.bookInfo = function(index) {
+            console.log("Get info on book at index "+index);
+        };
+
         $scope.downloadBook = function(bookId, event) {
             console.log("Download book with id " + bookId);
             angular.element('#downloadIframe').attr('src', 'api/book/'+bookId+'/download');
