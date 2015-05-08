@@ -22,6 +22,7 @@ define(['ngAmd'], function(ngAmd) {
 
             $scope.openPage = function(menuItem) {
                 $location.path(menuItem.url);
+                $mdSidenav('left').close();
             };
 
             $scope.isSelected = function(menuItem) {

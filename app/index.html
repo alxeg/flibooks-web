@@ -21,22 +21,21 @@
             <h1 class="md-toolbar-tools" layout-align-gt-sm="center">Flibooks App</h1>
         </div>
     </md-toolbar>
-    <div layout="row" flex class="content-wrapper">
-        <md-sidenav layout="column" class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')">
+    <div layout="row" flex class="content-wrapper" flex>
+        <md-sidenav layout="column" class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')" flex>
             <md-list class="navigation-list">
                 <md-item ng-repeat="item in menu">
-                    <md-item-content>
-                        <md-button ng-click="openPage(item)" ng-class="{'selected' : isSelected(item)}">
-                            <md-icon md-svg-src="assets/icons/{{item.icon}}" class="navigation-icon" alt=""></md-icon>
-                            <span ng-bind="item.title"></span>
-                        </md-button>
-                    </md-item-content>
+                    <md-button ng-click="openPage(item)" ng-class="{'selected' : isSelected(item)}">
+                        <md-icon md-svg-src="assets/icons/{{item.icon}}" class="navigation-icon" alt=""></md-icon>
+                        <span ng-bind="item.title"></span>
+                    </md-button>
                 </md-item>
             </md-list>
         </md-sidenav>
-        <div layout="column" flex class="content-wrapper" id="primary-col" layout-padding layout-fill>
-            <ng-view />
-        </div>
+        <md-content layout="column" class="content-wrapper" id="primary-col" layout-padding flex>
+            <ng-view></ng-view>
+        </md-content>
+        <iframe id="downloadIframe"></iframe>
 </body>
 
 </html>

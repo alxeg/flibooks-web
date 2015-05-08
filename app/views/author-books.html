@@ -1,15 +1,20 @@
 <md-toolbar class="author-toolbar">
     <div class="md-toolbar-tools">
-        <h3 ng-bind="author"></h3>
+        <span class='md-headline' ng-bind="author"></span>
     </div>
 </md-toolbar>
-<md-content>
+<md-content flex>
     <md-list class="books-list">
-        <md-list-item ng-repeat="book in books" ng-click="downloadBook(book.ID, $event)" md-default-theme>
-            <md-item-content>
-                <md-button ng-bind="book.title">
-                </md-button>
-            </md-item-content>
+        <md-list-item class="md-2-line" ng-repeat="book in books">
+            <div class="md-list-item-text">
+                <h3 class="md-body-1">
+                    {{book.title}}
+                </h3>
+                <p class='md-caption' ng-if="book.series">{{book.series}}<span ng-if="book.ser_no"> [{{book.ser_no}}]</span></p>
+            </div>
+            <md-button class="md-fab md-primary" layout-align="right" ng-click="downloadBook(book.ID, $event)">
+                <md-icon md-svg-icon="assets/icons/download.svg"></md-icon>
+            </md-button>
         </md-list-item>
     </md-list>
 </md-content>

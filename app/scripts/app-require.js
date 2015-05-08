@@ -6,7 +6,8 @@ require.config({
         'ngRoute': '../bower_components/angular-route/angular-route',
         'ngMessages': '../bower_components/angular-messages/angular-messages',
         'ngAnimate': '../bower_components/angular-animate/angular-animate',
-        'ngMaterial': '../bower_components/angular-material/angular-material'
+        'ngMaterial': '../bower_components/angular-material/angular-material',
+        'jquery': '../bower_components/jquery/dist/jquery'
     },
     shim: {
         ngRoute: {
@@ -34,7 +35,11 @@ require.config({
             exports: 'angular'
         },
         angular: {
+            deps: ['jquery'],
             exports: 'angular'
+        },
+        jquery: {
+            exports: 'jquery'
         }
     },
     baseUrl: 'scripts/',

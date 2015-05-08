@@ -1,4 +1,4 @@
-define(['app', 'services/data'], function(app) {
+define(['app', 'angular', 'services/data'], function(app, angular) {
 
     return ['$scope', '$routeParams', 'dataService', function($scope, $routeParams, dataService) {
         $scope.books = [];
@@ -6,6 +6,7 @@ define(['app', 'services/data'], function(app) {
 
         $scope.downloadBook = function(bookId, event) {
             console.log("Download book with id " + bookId);
+            angular.element('#downloadIframe').attr('src', 'api/book/'+bookId+'/download');
         };
 
 
