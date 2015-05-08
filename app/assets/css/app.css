@@ -35,6 +35,12 @@
     background-color: lightgray;
 }
 
+.book-line {
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  margin-bottom: 2px;
+}
+
 .navigation-list .selected {
     color: #03a9f4;
 }
