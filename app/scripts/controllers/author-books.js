@@ -1,17 +1,19 @@
-define(['app', 'angular', 'services/data'], function(app, angular) {
+define(['app', 'angular', 'services/data', 'services/info-dialog'], function(app, angular) {
 
-    return ['$scope', '$routeParams', 'dataService', function($scope, $routeParams, dataService) {
+    return ['$scope', '$routeParams', 'dataService', 'bookInfoService',
+            function($scope, $routeParams, dataService, bookInfoService) {
         $scope.books = [];
         $scope.author = '';
 
 
-        $scope.bookInfo = function(index) {
-            console.log("Get info on book at index "+index);
+        $scope.bookInfo = function(index, event) {
+            console.log("Get info on book at index " + index);
+            bookInfoService.showBookInfoDialog($scope.books[index]);
         };
 
         $scope.downloadBook = function(bookId, event) {
             console.log("Download book with id " + bookId);
-            angular.element('#downloadIframe').attr('src', 'api/book/'+bookId+'/download');
+            angular.element('#downloadIframe').attr('src', 'api/book/' + bookId + '/download');
         };
 
 

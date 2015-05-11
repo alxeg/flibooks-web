@@ -7,7 +7,8 @@ require.config({
         'ngMessages': '../bower_components/angular-messages/angular-messages',
         'ngAnimate': '../bower_components/angular-animate/angular-animate',
         'ngMaterial': '../bower_components/angular-material/angular-material',
-        'jquery': '../bower_components/jquery/dist/jquery'
+        'jquery': '../bower_components/jquery/dist/jquery',
+        'text': '../bower_components/requirejs-text/text'
     },
     shim: {
         ngRoute: {

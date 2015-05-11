@@ -1,0 +1,31 @@
+<md-dialog aria-label="Book info">
+    <md-dialog-content class='book-info-content' layout='column'>
+        <div class='book-info-authors'>
+            <span class='md-body-1' ng-repeat="author in book.authors">{{author.name}}</span>
+        </div>
+        <md-divider></md-divider>
+        <div class='book-info-title'>
+            <div class='md-title'>
+                {{book.title}}
+            </div>
+            <div class='book-info-title-series' ng-if='book.series'>&laquo;{{book.series}} <span ng-if="book.ser_no"> [{{book.ser_no}}]</span>&raquo;</div>
+        </div>
+        <md-divider></md-divider>
+        <div class='book-info-additional' layout='row' layout-wrap>
+            <div flex='50'>
+                {{book.file_size | number}}
+            </div>
+            <div flex='50'>
+                {{book.lang}}
+            </div>
+        </div>
+        <div class='book-info-genres'>
+          <span class='md-caption' ng-repeat='genre in book.genres'>{{genre.genre_code}}<span ng-if="!$last">, </span></span>
+        </div>
+    </md-dialog-content>
+    <div class="md-actions">
+        <md-button ng-click="closeDialog()" class="md-primary">
+            Close
+        </md-button>
+    </div>
+</md-dialog>

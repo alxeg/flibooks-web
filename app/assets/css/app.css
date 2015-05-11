@@ -28,7 +28,8 @@
 }
 
 .books-list h3 {
-  text-transform: uppercase;
+    text-transform: uppercase;
+    line-height: 1.2em !important;
 }
 
 .highlighted {
@@ -36,9 +37,9 @@
 }
 
 .book-line {
-  border: 1px solid lightgray;
-  border-radius: 5px;
-  margin-bottom: 2px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    margin-bottom: 2px;
 }
 
 .navigation-list .selected {
@@ -53,5 +54,42 @@
 }
 
 #downloadIframe {
-  display: none;
+    display: none;
+}
+
+.book-info-content {
+    max-width: 500px;
+    padding: 5px;
+}
+
+.book-info-authors * {
+    margin-right: 5px;
+    display: inline-table;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.book-info-title,
+.book-info-authors {
+    padding: 10px;
+}
+
+.book-info-title-series {
+    font-style: italic;
+    padding-top: 5px;
+    text-align: right;
+}
+
+.book-info-additional, .book-info-genres {
+    padding-top: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.book-info-additional {
+    font-weight: bold;
+}
+
+.book-info-additional :last-child {
+    text-align: right
 }
