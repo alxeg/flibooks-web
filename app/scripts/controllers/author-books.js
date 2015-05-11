@@ -14,6 +14,7 @@ define(['app', 'angular', 'services/data', 'services/info-dialog'], function(app
         $scope.downloadBook = function(bookId, event) {
             console.log("Download book with id " + bookId);
             angular.element('#downloadIframe').attr('src', 'api/book/' + bookId + '/download');
+            event.stopPropagation();
         };
 
 

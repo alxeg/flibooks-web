@@ -1,1 +1,27 @@
-books-search.html
+<form name="searchBooksForm">
+    <div layout='row' layout-wrap>
+        <md-input-container flex='50'>
+            <label>Title</label>
+            <input minlength="1" required name="title" ng-model="searchTitle">
+            <div ng-messages="searchBooksForm.title.$error">
+                <div ng-message="required">Enter part of book's title.</div>
+                <div ng-message="minlength">Enter at least 3 letters of book's title.</div>
+            </div>
+        </md-input-container>
+        <md-input-container flex='50' >
+            <label>Author Filter</label>
+            <input name="author" ng-model="searchAuthor">
+        </md-input-container>
+    </div>
+</form>
+<md-list class="books-list">
+    <md-list-item class="md-2-line book-line" ng-repeat="book in books" ng-click="bookInfo($index)">
+        <div class="md-list-item-text">
+            <h3 class="md-body-1" ng-bind-html="book.title | highlight:searchTitle"></h3>
+            <p class='md-caption'><span ng-repeat="author in book.authors" ng-bind-html="author.name | highlight:searchAuthor"><span ng-if="!$last">, </span></p>
+        </div>
+        <md-button class="md-fab md-primary" layout-align="right" ng-click="downloadBook(book.ID, $event)">
+            <md-icon md-svg-icon="assets/icons/download.svg"></md-icon>
+        </md-button>
+    </md-list-item>
+</md-list>

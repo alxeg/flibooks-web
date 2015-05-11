@@ -6,14 +6,42 @@ define(['app'], function(app) {
                 author: '',
                 limit: 10
             },
+            booksSrch: {
+                title: '',
+                author: '',
+                limit: 10
+            },
             authorsRes: [],
+            booksRes: [],
 
+            searchForBooks: searchForBooks,
             searchForAuthors: searchForAuthors,
             listAuthorsBooks: listAuthorsBooks,
             getAuthor: getAuthor
         };
 
         return serviceData;
+
+        function searchForBooks(title, author) {
+            var def = $q.defer();
+
+            if (title !== serviceData.booksSrch.title || author !== serviceData.booksSrch.author) {
+                serviceData.booksSrch.author = author;
+                serviceData.booksSrch.title = title;
+                $http.post("/api/book/search", serviceData.booksSrch)
+                    .success(function(data) {
+                        serviceData.booksRes = data;
+                        def.resolve(data);
+                    })
+                    .error(function() {
+                        def.reject("Failed to find books");
+                        serviceData.booksRes = [];
+                    });
+            } else {
+                def.resolve(serviceData.booksRes);
+            }
+            return def.promise;
+        }
 
         function searchForAuthors(name) {
             var def = $q.defer();

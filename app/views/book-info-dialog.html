@@ -10,17 +10,19 @@
             </div>
             <div class='book-info-title-series' ng-if='book.series'>&laquo;{{book.series}} <span ng-if="book.ser_no"> [{{book.ser_no}}]</span>&raquo;</div>
         </div>
-        <md-divider></md-divider>
-        <div class='book-info-additional' layout='row' layout-wrap>
-            <div flex='50'>
-                {{book.file_size | number}}
+        <div layout='column' layout-align='bottom'>
+            <md-divider></md-divider>
+            <div class='book-info-additional' layout='row' layout-wrap>
+                <div flex='50'>
+                    {{book.file_size | number}}
+                </div>
+                <div flex='50'>
+                    {{book.lang}}
+                </div>
             </div>
-            <div flex='50'>
-                {{book.lang}}
+            <div class='book-info-genres'>
+                <span class='md-caption' ng-repeat='genre in book.genres'>{{genre.genre_code}}<span ng-if="!$last">, </span></span>
             </div>
-        </div>
-        <div class='book-info-genres'>
-          <span class='md-caption' ng-repeat='genre in book.genres'>{{genre.genre_code}}<span ng-if="!$last">, </span></span>
         </div>
     </md-dialog-content>
     <div class="md-actions">
