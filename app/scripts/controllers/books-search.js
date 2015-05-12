@@ -10,7 +10,8 @@ define(['app', 'services/data', 'services/info-dialog'], function(app) {
 
             $scope.bookInfo = function(index, event) {
                 console.log("Get info on book at index " + index);
-                bookInfoService.showBookInfoDialog($scope.books[index]);
+                bookInfoService.showBookInfoDialog($scope.books[index].ID, event);
+
             };
 
             $scope.downloadBook = function(bookId, event) {

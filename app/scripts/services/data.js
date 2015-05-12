@@ -4,12 +4,12 @@ define(['app'], function(app) {
         var serviceData = {
             authorsSrch: {
                 author: '',
-                limit: 10
+                limit: 20
             },
             booksSrch: {
                 title: '',
                 author: '',
-                limit: 10
+                limit: 20
             },
             authorsRes: [],
             booksRes: [],
@@ -17,7 +17,8 @@ define(['app'], function(app) {
             searchForBooks: searchForBooks,
             searchForAuthors: searchForAuthors,
             listAuthorsBooks: listAuthorsBooks,
-            getAuthor: getAuthor
+            getAuthor: getAuthor,
+            getBook: getBook
         };
 
         return serviceData;
@@ -66,7 +67,7 @@ define(['app'], function(app) {
         function listAuthorsBooks(id) {
             var def = $q.defer();
 
-            $http.get("/api/author/"+id+"/books")
+            $http.get("/api/author/"+id+"/books?no-details=true")
                 .success(function(data) {
                     def.resolve(data);
                 })
@@ -80,6 +81,19 @@ define(['app'], function(app) {
             var def = $q.defer();
 
             $http.get("/api/author/"+id)
+                .success(function(data) {
+                    def.resolve(data);
+                })
+                .error(function() {
+                    def.reject("Failed to find author");
+                });
+            return def.promise;
+        }
+
+        function getBook(id) {
+            var def = $q.defer();
+
+            $http.get("/api/book/"+id)
                 .success(function(data) {
                     def.resolve(data);
                 })
