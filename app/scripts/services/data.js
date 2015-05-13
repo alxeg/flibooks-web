@@ -3,13 +3,13 @@ define(['app'], function(app) {
     app.factory('dataService', ['$http', '$q', function($http, $q) {
         var serviceData = {
             authorsSrch: {
-                author: '',
-                limit: 20
+                'author': '',
+                'limit': 20
             },
             booksSrch: {
-                title: '',
-                author: '',
-                limit: 20
+                'title': '',
+                'author': '',
+                'limit': 20
             },
             authorsRes: [],
             booksRes: [],

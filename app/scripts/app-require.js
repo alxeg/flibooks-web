@@ -44,6 +44,6 @@ require.config({
         }
     },
     baseUrl: 'scripts/',
-    deps: ['app']
+    deps: ['app', 'text']
 });
 
