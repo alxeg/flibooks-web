@@ -1,16 +1,16 @@
 <md-dialog aria-label="Book info">
     <md-dialog-content class='book-info-content' layout='column'>
-        <div class='book-info-authors'>
-            <span class='md-body-1' ng-repeat="author in book.authors">{{author.name}}</span>
+        <div class='book-info-authors' flex='30'>
+            <span class='md-body-1' ng-repeat="author in book.authors | limitTo: 5">{{author.name}}</span>
         </div>
         <md-divider></md-divider>
-        <div class='book-info-title'>
+        <div class='book-info-title' flex='50'>
             <div class='md-title'>
-                {{book.title}}
+                {{book.title | limitTo: 200 }}
             </div>
             <div class='book-info-title-series' ng-if='book.series'>&laquo;{{book.series}} <span ng-if="book.ser_no"> [{{book.ser_no}}]</span>&raquo;</div>
         </div>
-        <div layout='column' layout-align='bottom'>
+        <div layout='column' layout-align='bottom' flex='18'>
             <md-divider></md-divider>
             <div class='book-info-additional' layout='row' layout-wrap>
                 <div flex='50'>
