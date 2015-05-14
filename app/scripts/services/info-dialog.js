@@ -1,38 +1,43 @@
 define(['app', 'text!/views/book-info-dialog.html', 'services/data'], function(app, dialogTemplate) {
 
-    app.factory('bookInfoService', ['$mdDialog', 'dataService', function($mdDialog, dataService) {
-        var serviceData = {
-            showBookInfoDialog: showBookInfoDialog
-        };
+    app
+        .controller('bookInfoController', ['$scope', '$mdDialog', 'book', function($scope, $mdDialog, book) {
+            $scope.book = book;
+            $scope.closeDialog = function() {
+                $mdDialog.hide();
+            };
+        }])
+        .factory('bookInfoService', ['$mdDialog', 'dataService', function($mdDialog, dataService) {
+            var serviceData = {
+                showBookInfoDialog: showBookInfoDialog
+            };
 
-        return serviceData;
+            return serviceData;
 
-        function showBookInfoDialog(bookId, event) {
-            var parentEl = angular.element(document.body);
-            dataService.getBook(bookId)
-                .then(function(data, status) {
-                        $mdDialog.show({
-                            parent: parentEl,
-                            targetEvent: event,
-                            template: dialogTemplate,
-                            locals: {
-                                book: data
-                            },
-                            controller: dialogController
-                        });
+            function showBookInfoDialog(book, event) {
+                var parentEl = angular.element(document.body);
+                $mdDialog.show({
+                    parent: parentEl,
+                    targetEvent: event,
+                    template: dialogTemplate,
+                    locals: {
+                        book: book
                     },
-                    function(data, status) {
+                    onComplete: function(scope, element, options) {
+                        dataService.getBook(scope.book.ID)
+                            .then(function(data, status) {
+                                scope.book = data;
 
-                    });
+                            },
+                            function(data, status) {
 
+                                });
 
-            function dialogController(scope, $mdDialog, book) {
-                scope.book = book;
-                scope.closeDialog = function() {
-                    $mdDialog.hide();
-                };
+                    },
+                    controller: 'bookInfoController'
+                });
             }
-        }
 
-    }]);
+
+        }]);
 });

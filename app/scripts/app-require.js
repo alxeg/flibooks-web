@@ -1,13 +1,13 @@
 require.config({
     paths: {
-        'angular': '../bower_components/angular/angular',
-        'ngAmd': '../bower_components/angularAMD/angularAMD',
-        'ngAria': '../bower_components/angular-aria/angular-aria',
-        'ngRoute': '../bower_components/angular-route/angular-route',
-        'ngMessages': '../bower_components/angular-messages/angular-messages',
-        'ngAnimate': '../bower_components/angular-animate/angular-animate',
-        'ngMaterial': '../bower_components/angular-material/angular-material',
-        'jquery': '../bower_components/jquery/dist/jquery',
+        'angular': '../bower_components/angular/angular.min',
+        'ngAmd': '../bower_components/angularAMD/angularAMD.min',
+        'ngAria': '../bower_components/angular-aria/angular-aria.min',
+        'ngRoute': '../bower_components/angular-route/angular-route.min',
+        'ngMessages': '../bower_components/angular-messages/angular-messages.min',
+        'ngAnimate': '../bower_components/angular-animate/angular-animate.min',
+        'ngMaterial': '../bower_components/angular-material/angular-material.min',
+        'jquery': '../bower_components/jquery/dist/jquery.min',
         'text': '../bower_components/requirejs-text/text'
     },
     shim: {

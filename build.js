@@ -8,5 +8,5 @@
     keepBuildDir: false,
     removeCombined: true,
     findNestedDependencies: true,
-    optimize: 'none',
+    optimize: 'uglify',
 })
