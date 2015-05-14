@@ -12,7 +12,7 @@
                 </h3>
                 <p class='md-caption' ng-if="book.series">{{book.series}}<span ng-if="book.ser_no"> [{{book.ser_no}}]</span></p>
             </div>
-            <md-button class="md-fab md-primary" layout-align="right" ng-click="downloadBook(book.ID, $event)">
+            <md-button class="md-fab md-primary" layout-align="right" aria-label="Download" ng-click="downloadBook(book.ID, $event)">
                 <md-icon md-svg-icon="assets/icons/download.svg"></md-icon>
             </md-button>
         </md-list-item>

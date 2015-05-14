@@ -20,7 +20,7 @@
             <h3 class="md-body-1" ng-bind-html="book.title | highlight:searchTitle"></h3>
             <p class='md-caption'><span ng-repeat="author in book.authors" ng-bind-html="author.name | highlight:searchAuthor"><span ng-if="!$last">, </span></p>
         </div>
-        <md-button class="md-fab md-primary" layout-align="right" ng-click="downloadBook(book.ID, $event)">
+        <md-button class="md-fab md-primary" layout-align="right" aria-label="Download" ng-click="downloadBook(book.ID, $event)">
             <md-icon md-svg-icon="assets/icons/download.svg"></md-icon>
         </md-button>
     </md-list-item>
