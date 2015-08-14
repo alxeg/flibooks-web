@@ -17,7 +17,7 @@
     "angular-aria": "^1.4.x",
     "angular-loader": "~1.4.x",
     "angular-messages": "~1.4.x",
-    "angular-material": "~0.9.x",
+    "angular-material": "~0.10.x",
     "jquery": "~2.x",
     "animate.css": "~3.2.6",
     "html5-boilerplate": "~5.2.0",
