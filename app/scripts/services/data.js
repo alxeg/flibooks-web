@@ -17,6 +17,7 @@ define(['app'], function(app) {
             searchForBooks: searchForBooks,
             searchForAuthors: searchForAuthors,
             listAuthorsBooks: listAuthorsBooks,
+            listLibraryBooks: listLibraryBooks,
             getAuthor: getAuthor,
             getBook: getBook
         };
@@ -99,6 +100,19 @@ define(['app'], function(app) {
                 })
                 .error(function() {
                     def.reject("Failed to find author");
+                });
+            return def.promise;
+        }
+
+        function listLibraryBooks(libId) {
+            var def = $q.defer();
+
+            $http.get("/api/book/lib/"+libId)
+                .success(function(data) {
+                    def.resolve(data);
+                })
+                .error(function() {
+                    def.reject("Failed to find authors");
                 });
             return def.promise;
         }

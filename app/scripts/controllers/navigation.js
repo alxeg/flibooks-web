@@ -7,8 +7,13 @@ define(['ngAmd'], function(ngAmd) {
     }, {
         "title": "books",
         "url": "/book/search",
-        "icon": "books.svg",
+        "icon": "lookup.svg",
         "selectionPath": "/book/"
+    }, {
+        "title": "library",
+        "url": "/library/search",
+        "icon": "books.svg",
+        "selectionPath": "/library/"
     }];
 
     ngAmd.controller('navigation-controller', [

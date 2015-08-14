@@ -1,0 +1,24 @@
+<form name="searchLibraryForm">
+    <div layout='row' layout-align="end center">
+        <md-input-container flex>
+            <label>Book's Library ID</label>
+            <input minlength="1" required name="libId" ng-model="search">
+            <div ng-messages="searchLibraryForm.libId.$error">
+                <div ng-message="required">Enter valid library book ID.</div>
+            </div>
+        </md-input-container>
+        <md-button class="md-raised" aria-label="Search" ng-click="searchBooks($event)">Search</md-button>
+    </div>
+</form>
+<div ng-repeat="book in books">
+    <md-card>
+        <md-card-content>
+            <ng-include src="'views/book-info.html'"></ng-include>
+        </md-card-content>
+        <div class="md-actions" layout="row" layout-align="end center">
+            <md-button class="md-fab md-primary" layout-align="right" aria-label="Download" ng-click="downloadBook(book.ID, $event)">
+                <md-icon md-svg-icon="assets/icons/download.svg"></md-icon>
+            </md-button>
+        </div>
+    </md-card>
+</div>

@@ -26,6 +26,10 @@ define(['ngAmd', 'ngRoute', 'ngMaterial', 'ngAnimate', 'ngAria', 'ngMessages',
                     templateUrl: 'views/books-search.html',
                     controllerUrl: 'controllers/books-search'
                 }))
+                .when("/library/search", ngAmd.route({
+                    templateUrl: 'views/library-search.html',
+                    controllerUrl: 'controllers/library-search'
+                }))
                 .otherwise({
                     redirectTo: '/home'
                 });
