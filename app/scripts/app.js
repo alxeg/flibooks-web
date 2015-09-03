@@ -1,14 +1,19 @@
-define(['ngAmd', 'ngRoute', 'ngMaterial', 'ngAnimate', 'ngAria', 'ngMessages',
+define(['ngAmd', 'ngRoute', 'ngMaterial', 'ngAnimate', 'ngAria', 'ngMessages', 'ngLocalStorage',
         'controllers/navigation', 'common/filters'
     ],
     function(ngAmd) {
         var app = angular.module('fliApp', [
             'ngRoute',
             'ngMaterial',
-            'ngMessages'
+            'ngMessages',
+            'LocalStorageModule'
         ]);
 
-        app.config(['$routeProvider', function($routeProvider) {
+        app.config(['$routeProvider', 'localStorageServiceProvider', function($routeProvider, localStorageServiceProvider) {
+            localStorageServiceProvider
+                .setPrefix('fliBooks')
+                .setStorageCookie(0, '/');
+
             $routeProvider
                 .when("/home", ngAmd.route({
                     templateUrl: 'views/home.html',

@@ -7,6 +7,7 @@ require.config({
         'ngMessages': '../bower_components/angular-messages/angular-messages.min',
         'ngAnimate': '../bower_components/angular-animate/angular-animate.min',
         'ngMaterial': '../bower_components/angular-material/angular-material.min',
+        'ngLocalStorage': '../bower_components/angular-local-storage/dist/angular-local-storage.min',
         'jquery': '../bower_components/jquery/dist/jquery.min',
         'text': '../bower_components/requirejs-text/text'
     },
@@ -31,6 +32,10 @@ require.config({
             deps: ['angular'],
             exports: 'angular'
         },
+        ngLocalStorage: {
+            deps: ['angular'],
+            exports: 'angular' 
+        },
         ngAmd: {
             deps: ['angular'],
             exports: 'angular'
@@ -46,4 +51,3 @@ require.config({
     baseUrl: 'scripts/',
     deps: ['app', 'text']
 });
-

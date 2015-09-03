@@ -17,22 +17,32 @@ define(['ngAmd'], function(ngAmd) {
     }];
 
     ngAmd.controller('navigation-controller', [
-        '$scope', '$mdSidenav', '$location', 
+        '$scope', '$mdSidenav', '$location',
 
         function($scope, $mdSidenav, $location) {
 
             $scope.toggleNavigation = function() {
-                $mdSidenav('left').toggle();
+                $mdSidenav('menu').toggle();
             };
 
             $scope.openPage = function(menuItem) {
                 $location.path(menuItem.url);
-                $mdSidenav('left').close();
+                $mdSidenav('menu').close();
             };
 
             $scope.isSelected = function(menuItem) {
                 return $location.url().indexOf(menuItem.selectionPath) === 0;
             };
+
+            $scope.toggleSettings = function() {
+                $mdSidenav('settings').toggle();
+            }
+
+            $scope.saveSettings = function() {
+                $mdSidenav('settings').close().then(function() {
+                    
+                });
+            }
 
             $scope.menu = navMenu;
 

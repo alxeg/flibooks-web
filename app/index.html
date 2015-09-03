@@ -20,13 +20,13 @@
                 <md-icon md-svg-src="assets/icons/menu.svg"></md-icon>
             </md-button>
             <h1 flex class="md-toolbar-tools" layout-align-gt-sm="center">Flibooks App</h1>
-            <md-button class="md-icon-button" aria-label="Favorite">
+            <md-button class="md-icon-button" aria-label="Settings" ng-click="toggleSettings()">
                 <md-icon md-svg-icon="assets/icons/settings.svg"></md-icon>
             </md-button>
         </div>
     </md-toolbar>
     <div layout="row" flex class="content-wrapper" flex>
-        <md-sidenav layout="column" class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')" flex>
+        <md-sidenav layout="column" class="md-sidenav-left md-whiteframe-z2" md-component-id="menu" md-is-locked-open="$mdMedia('gt-sm')" flex>
             <md-list class="navigation-list">
                 <md-item ng-repeat="item in menu">
                     <md-button ng-click="openPage(item)" ng-class="{'selected' : isSelected(item)}" aria-label="{{item.title}}">
@@ -39,6 +39,20 @@
         <md-content layout="column" class="content-wrapper" id="primary-col" layout-padding flex>
             <ng-view></ng-view>
         </md-content>
+        <md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="settings">
+            <md-toolbar class="md-theme-light">
+                <h1 class="md-toolbar-tools">Settings</h1>
+            </md-toolbar>
+            <md-content layout-padding>
+                <form>
+                    <md-input-container>
+                    </md-input-container>
+                </form>
+                <md-button ng-click="saveSettings()" class="md-primary">
+                    Save
+                </md-button>
+            </md-content>
+        </md-sidenav>
         <iframe id="downloadIframe"></iframe>
 </body>
 

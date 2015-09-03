@@ -1,6 +1,7 @@
 define(['app'], function(app) {
 
-    app.factory('dataService', ['$http', '$q', function($http, $q) {
+    app.factory('dataService', ['$http', '$q', 'localStorageService', function($http, $q, localStorageService) {
+
         var serviceData = {
             authorsSrch: {
                 'author': '',

@@ -23,7 +23,8 @@
     "html5-boilerplate": "~5.2.0",
     "requirejs": "~2.1.x",
     "requirejs-text": "~2.0.x",
-    "angularAMD": "~0.2.x"
+    "angularAMD": "~0.2.x",
+    "angular-local-storage": "~0.2.2"
   },
   "resolutions": {
     "angular": "1.4.x"
