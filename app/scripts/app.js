@@ -1,5 +1,5 @@
 define(['ngAmd', 'ngRoute', 'ngMaterial', 'ngAnimate', 'ngAria', 'ngMessages', 'ngLocalStorage',
-        'controllers/navigation', 'common/filters'
+        'controllers/navigation', 'controllers/settings', 'common/filters'
     ],
     function(ngAmd) {
         var app = angular.module('fliApp', [

@@ -1,4 +1,4 @@
-define(['app'], function(app) {
+define(['ngAmd'], function(app) {
 
     app.factory('dataService', ['$http', '$q', 'localStorageService', function($http, $q, localStorageService) {
 
@@ -14,14 +14,18 @@ define(['app'], function(app) {
             },
             authorsRes: [],
             booksRes: [],
+            selectedLangs: [],
 
             searchForBooks: searchForBooks,
             searchForAuthors: searchForAuthors,
             listAuthorsBooks: listAuthorsBooks,
             listLibraryBooks: listLibraryBooks,
             getAuthor: getAuthor,
-            getBook: getBook
+            getBook: getBook,
+            getLanguages: getLanguages
         };
+
+
 
         return serviceData;
 
@@ -109,6 +113,19 @@ define(['app'], function(app) {
             var def = $q.defer();
 
             $http.get("/api/book/lib/"+libId)
+                .success(function(data) {
+                    def.resolve(data);
+                })
+                .error(function() {
+                    def.reject("Failed to find authors");
+                });
+            return def.promise;
+        }
+
+        function getLanguages() {
+            var def = $q.defer();
+
+            $http.get("/api/book/langs")
                 .success(function(data) {
                     def.resolve(data);
                 })

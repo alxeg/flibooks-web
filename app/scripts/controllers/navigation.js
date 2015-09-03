@@ -22,6 +22,7 @@ define(['ngAmd'], function(ngAmd) {
         function($scope, $mdSidenav, $location) {
 
             $scope.toggleNavigation = function() {
+                $mdSidenav('settings').close();
                 $mdSidenav('menu').toggle();
             };
 
@@ -35,17 +36,17 @@ define(['ngAmd'], function(ngAmd) {
             };
 
             $scope.toggleSettings = function() {
+                $mdSidenav('menu').close();
                 $mdSidenav('settings').toggle();
-            }
+            };
 
-            $scope.saveSettings = function() {
+            $scope.closeSettings = function() {
                 $mdSidenav('settings').close().then(function() {
-                    
+
                 });
-            }
+            };
 
             $scope.menu = navMenu;
-
         }
     ]);
 });

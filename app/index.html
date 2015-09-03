@@ -40,18 +40,10 @@
             <ng-view></ng-view>
         </md-content>
         <md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="settings">
-            <md-toolbar class="md-theme-light">
-                <h1 class="md-toolbar-tools">Settings</h1>
-            </md-toolbar>
-            <md-content layout-padding>
-                <form>
-                    <md-input-container>
-                    </md-input-container>
-                </form>
-                <md-button ng-click="saveSettings()" class="md-primary">
-                    Save
-                </md-button>
-            </md-content>
+            <ng-include src="'views/settings.html'"></ng-include>
+            <md-button ng-click="closeSettings()" class="md-primary">
+                CLOSE
+            </md-button>
         </md-sidenav>
         <iframe id="downloadIframe"></iframe>
 </body>
