@@ -29,13 +29,23 @@ define(['ngAmd'], function(app) {
 
         return serviceData;
 
+        function applySettings(data) {
+            data.deleted = !localStorageService.get('noRemoved');
+            data.langs = localStorageService.get('langs');
+            if (! data.langs ) {
+                data.langs = [];
+            }
+            return data;
+        }
+
         function searchForBooks(title, author) {
             var def = $q.defer();
 
             if (title !== serviceData.booksSrch.title || author !== serviceData.booksSrch.author) {
                 serviceData.booksSrch.author = author;
                 serviceData.booksSrch.title = title;
-                
+                serviceData.booksSrch = applySettings(serviceData.booksSrch);
+
                 $http.post("/api/book/search", serviceData.booksSrch)
                     .success(function(data) {
                         serviceData.booksRes = data;
@@ -73,8 +83,9 @@ define(['ngAmd'], function(app) {
 
         function listAuthorsBooks(id) {
             var def = $q.defer();
+            var params = applySettings({});
 
-            $http.get("/api/author/"+id+"/books?no-details=true")
+            $http.post("/api/author/"+id+"/books?no-details=true", params)
                 .success(function(data) {
                     def.resolve(data);
                 })
