@@ -2,17 +2,21 @@
     <md-toolbar class="md-theme-light">
         <h1 class="md-toolbar-tools">Settings</h1>
     </md-toolbar>
-    <md-content layout-padding>
-        <form>
-            <fieldset class="standard" flex>
-                <div layout="row" layout-wrap>
-                    <div flex="30" ng-repeat="lang in languages">
-                        <md-checkbox ng-checked="isSelected(lang, selected)" ng-click="toggleLang(lang)">
-                            <span class='md-caption'>{{ lang }}</span>
-                        </md-checkbox>
-                    </div>
+    <div class="md-padding">
+        <md-checkbox ng-checked="noRemoved" ng-click="toggleNoRemoved()">
+            <span class='md-legend'>Do not search removed</span>
+        </md-checkbox>
+    </div>
+    <div class="md-padding">
+        <fieldset class="standard" flex>
+            <legend>Languages</legend>
+            <div layout="row" layout-wrap>
+                <div flex="30" ng-repeat="lang in languages">
+                    <md-checkbox ng-checked="isSelected(lang, selected)" ng-click="toggleLang(lang)">
+                        <span class='md-caption' ng-bind="lang"></span>
+                    </md-checkbox>
                 </div>
-            </fieldset>
-        </form>
-    </md-content>
+            </div>
+        </fieldset>
+    </div>
 </div>

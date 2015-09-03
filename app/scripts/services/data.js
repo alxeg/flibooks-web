@@ -35,6 +35,7 @@ define(['ngAmd'], function(app) {
             if (title !== serviceData.booksSrch.title || author !== serviceData.booksSrch.author) {
                 serviceData.booksSrch.author = author;
                 serviceData.booksSrch.title = title;
+                
                 $http.post("/api/book/search", serviceData.booksSrch)
                     .success(function(data) {
                         serviceData.booksRes = data;
