@@ -17,14 +17,14 @@
     "angular-aria": "^1.4.x",
     "angular-loader": "~1.4.x",
     "angular-messages": "~1.4.x",
-    "angular-material": "~0.10.x",
+    "angular-material": "~0.11.x",
     "jquery": "~2.x",
     "animate.css": "~3.2.6",
     "html5-boilerplate": "~5.2.0",
     "requirejs": "~2.1.x",
     "requirejs-text": "~2.0.x",
     "angularAMD": "~0.2.x",
-    "angular-local-storage": "~0.2.2"
+    "angular-local-storage": "~0.2.x"
   },
   "resolutions": {
     "angular": "1.4.x"
