@@ -11,13 +11,13 @@
     "tests"
   ],
   "dependencies": {
-    "angular": "~1.4.x",
-    "angular-animate": "~1.4.x",
-    "angular-route": "~1.4.x",
-    "angular-aria": "^1.4.x",
-    "angular-loader": "~1.4.x",
-    "angular-messages": "~1.4.x",
-    "angular-material": "~0.11.x",
+    "angular": "~1.5.x",
+    "angular-animate": "~1.5.x",
+    "angular-route": "~1.5.x",
+    "angular-aria": "^1.5.x",
+    "angular-loader": "~1.5.x",
+    "angular-messages": "~1.5.x",
+    "angular-material": "~1.1.x",
     "jquery": "~2.x",
     "animate.css": "~3.2.6",
     "html5-boilerplate": "~5.2.0",
@@ -27,6 +27,6 @@
     "angular-local-storage": "~0.2.x"
   },
   "resolutions": {
-    "angular": "1.4.x"
+    "angular": "1.5.x"
   }
 }
